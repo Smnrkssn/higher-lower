@@ -40,7 +40,8 @@
     "test coverage": "jest --env=jsdom --coverage",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "heroku-postbuild": "next build",
+    "start": "next start -p $PORT"
   },
   "jest": {
     "testURL": "http://localhost:3000",
