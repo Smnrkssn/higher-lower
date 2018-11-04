@@ -1,0 +1,161 @@
+//----------------------------------------------
+// 1.0 Colors
+//----------------------------------------------
+$primary   : #343a40;
+$secondary : #343a40;
+$white     : #ffffff;
+$black     : #000000;
+$gray      : #eeeeee;
+
+//----------------------------------------------
+// 1.1 Bootstrap Colors
+//----------------------------------------------
+$bBlue      : #007bff;
+$bIndigo    : #6610f2;
+$bPurple    : #6f42c1;
+$bPink      : #e83e8c;
+$bRed       : #dc3545;
+$bOrange    : #fd7e14;
+$bYellow    : #ffc107;
+$bGreen     : #28a745;
+$bTeal      : #20c997;
+$bCyan      : #17a2b8;
+$bWhite     : #ffffff;
+$bGray      : #6c757d;
+$bDarkGray  : #343a40;
+$bPrimary   : #007bff;
+$bSecondary : #545b62;
+$bSuccess   : #28a745;
+$bDanger    : #dc3545;
+$bWarning   : #d39e00;
+$bInfo      : #17a2b8;
+
+//----------------------------------------------
+// 1.2 Color Maps
+//----------------------------------------------
+$darkColors: (
+    (primary     $primary)
+    (secondary   $secondary)
+    (black       $black)
+    (b-blue       $bBlue)
+    (b-yellow    $bYellow)
+    (b-orange    $bOrange)
+    (b-teal      $bTeal)
+    (b-cyan      $bCyan)
+    (b-red       $bRed)
+    (b-pink      $bPink)
+    (b-purple    $bPurple)
+    (b-indigo    $bIndigo)
+    (b-primary   $bPrimary)
+    (b-secondary $bSecondary)
+    (success     $bSuccess)
+    (danger      $bDanger)
+    (warning     $bWarning)
+	(b-dark-gray $bDarkGray)
+    (info        $bInfo)
+);
+
+$lightColors: (
+    (white $white)
+    (gray  $gray)
+);
+
+$colors: join($darkColors, $lightColors);
+
+//----------------------------------------------
+// 2.0 Fonts
+//----------------------------------------------
+$primaryFont: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+//----------------------------------------------
+// 3.0 Site Variables
+//----------------------------------------------
+//3.1 Headings
+$display1: 52px;
+$display2: 48px;
+$display3: 44px;
+$display4: 40px;
+$display5: 36px;
+$display6: 32px;
+$h1: 28px;
+$h2: 28px;
+$h3: 24px;
+$h4: 20px;
+$h5: 16px;
+$h6: 12px;
+
+$displayList: (
+    $display1
+    $display2
+    $display3
+    $display4
+    $display5
+    $display6
+);
+
+$headingList: (
+	$h1
+    $h2
+    $h3
+    $h4
+    $h5
+    $h6
+);
+
+//3.2 Wrappers
+$wrapper1: 1200px;
+$wrapper2: 992px;
+$wrapper3: 768px;
+$wrapper4: 576px;
+$wrapper5: 435px;
+$wrapper6: 326px;
+
+$wrapperList: (
+    $wrapper1
+    $wrapper2
+    $wrapper3
+    $wrapper4
+    $wrapper5
+    $wrapper6
+);
+
+//3.3 Dividers
+$divider1: 45px;
+$divider2: 30px;
+$divider3: 15px;
+$divider4: 7.5px;
+
+$dividerList: (
+    $divider1
+    $divider2
+    $divider3
+    $divider4
+);
+
+//3.4 Height
+$siteHeight: 1500px;
+
+//----------------------------------------------
+// 4.0 Media Queries
+//----------------------------------------------
+// $mediaXLarge  - 1600px
+// $mediaLarge   - 1200px
+// $mediaMedium  - 992px
+// $mediaSmall   - 768px
+// $mediaXSmall  - 576px
+// $mediaXXSmall - 436px
+//----------------------------------------------
+$mediaLarge   : 1200px;
+$mediaMedium  : 992px;
+$mediaSmall   : 768px;
+$mediaXSmall  : 576px;
+$mediaXXSmall : 0;
+
+// 6.1 Media Query Map
+$mediaQueries: (
+    (lg  $mediaLarge)
+    (md  $mediaMedium)
+    (sm  $mediaSmall)
+    (xs  $mediaXSmall)
+    (xxs $mediaXXSmall)
+);

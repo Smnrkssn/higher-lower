@@ -1,0 +1,48 @@
+.button {
+    display: inline-block;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    padding: 10px 15px;
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+@each $name, $color in $darkColors {
+    .button-#{$name}{
+        @extend .button;
+        background-color: $color;
+        color: $white;
+
+        &:disabled {
+            background-color: lighten($color, 5%);
+        }
+
+        &.inverted {
+            background-color: rgba(0, 0, 0, 0);
+            border: 2px solid $color;
+            color: $color;
+            font-weight: bold;
+            @include standardHoverEffect();
+
+            &:hover {
+                background-color: $color;
+                color: $white;
+            }
+        }
+    }
+}
+
+@each $name, $color in $lightColors {
+    .button-#{$name}{
+        @extend .button;
+        background-color: $color;
+        color: $black;
+
+        &:disabled {
+            background-color: darken($color, .5);
+        }
+    }
+}
