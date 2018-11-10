@@ -39,8 +39,8 @@
     "test": "jest --env=jsdom",
     "test coverage": "jest --env=jsdom --coverage",
     "dev": "next",
-    "build": "next build",
-    "start": "next start",
+    "heroku-postbuild": "next build",
+    "start": "next start -p $PORT"
     "favicon": "node scripts.js favicon"
   },
   "jest": {
