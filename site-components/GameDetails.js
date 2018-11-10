@@ -7,11 +7,15 @@ export const GameDetails = ({
     nextGuess,
     lowValue,
     highValue,
+    metamaskAddress,
     costOfNextGuess,
     lastGuessAddress,
     counterIsStopped,
     onCounterStop = () => {},
     gameEndTime,
+    hasNotified,
+    notify,
+    notifyAt,
     balance
 }) => {
     return (
@@ -30,7 +34,14 @@ export const GameDetails = ({
             </h3>
             <h3>
                 The last Ethereum wallet address to make a guess was: <p>
-                <Address address={lastGuessAddress}/>
+                {(lastGuessAddress === "0x0000000000000000000000000000000000000000")
+                    ? (
+                        <span>Nobody has made a guess yet!</span>
+                    ) : (metamaskAddress === lastGuessAddress) ? (
+                        <span>You, my friend!</span>
+                    ) : (
+                        <Address address={lastGuessAddress}/>
+                    )}
             </p>
             </h3>
             <div className="divider-2">
@@ -39,6 +50,9 @@ export const GameDetails = ({
                         isStopped={counterIsStopped}
                         onStop={onCounterStop}
                         stop={new Date(gameEndTime)}
+                        hasNotified={hasNotified}
+                        notifyAt={notifyAt}
+                        notify={notify}
                     />
                 </HideFragment>
             </div>

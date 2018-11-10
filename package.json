@@ -40,8 +40,8 @@
     "test coverage": "jest --env=jsdom --coverage",
     "dev": "next",
     "build": "next build",
-    "heroku-postbuild": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start",
+    "favicon": "node scripts.js favicon"
   },
   "jest": {
     "testURL": "http://localhost:3000",

@@ -23,7 +23,19 @@ class Countdown extends React.Component {
         this.interval = window.setInterval(() =>{
             this.setState({diff: this.getDiffObject()});
             this.isTimeOver() && this.stopCount();
+
+            if(this.isTimeToNotify()){
+                this.notify();
+            }
+
+            this.isTimeOver() && this.stopCount();
         }, 1000);
+    }
+
+    notify(){
+        if(!this.props.hasNotified){
+            this.props.notify();
+        }
     }
 
     /**
@@ -59,6 +71,12 @@ class Countdown extends React.Component {
         };
     }
 
+    isTimeToNotify(){
+        if(!this.props.notifyAt) return false;
+
+        return (new Date()).getTime() + this.props.notifyAt > this.props.stop.getTime();
+    }
+
     /**
      * Return flag stop date reached
      * @return {Boolean}
@@ -88,23 +106,25 @@ class Countdown extends React.Component {
             },
             isOver = this.isTimeOver();
 
-        return <div className={classNames("countdown", this.props.className)}>
-            {Object.keys(this.state.diff).map(key => <div
-                key={key}
-                className={classNames(`countdown-${key}`, this.props.slotClassName)}>
-                {Array(2).fill(0).map((_, i) => <Flipper
-                    key={`${key}${i}`}
-                    reverse
-                    className={this.props.cardsClassName}
-                    cardClassName={this.props.cardClassName}
-                    sidesWrapClassName={this.props.sidesWrapClassName}
-                    sideClassName={this.props.sideClassName}
-                    numClassName={this.props.numClassName}
-                    now={!isOver ? +this.getFormattedVal(this.state.diff[key])[i] : 0}
-                    min={forks[key][i][0]}
-                    max={forks[key][i][1]}/>)}
-            </div>)}
-        </div>;
+        return (
+            <div className={classNames("countdown", this.props.className)}>
+                {Object.keys(this.state.diff).map(key => <div
+                    key={key}
+                    className={classNames(`countdown-${key}`, this.props.slotClassName)}>
+                    {Array(2).fill(0).map((_, i) => <Flipper
+                        key={`${key}${i}`}
+                        reverse
+                        className={this.props.cardsClassName}
+                        cardClassName={this.props.cardClassName}
+                        sidesWrapClassName={this.props.sidesWrapClassName}
+                        sideClassName={this.props.sideClassName}
+                        numClassName={this.props.numClassName}
+                        now={!isOver ? +this.getFormattedVal(this.state.diff[key])[i] : 0}
+                        min={forks[key][i][0]}
+                        max={forks[key][i][1]}/>)}
+                </div>)}
+            </div>
+        );
     }
 };
 
